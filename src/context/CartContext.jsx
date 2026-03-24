@@ -8,6 +8,17 @@ export const CartProvider = ({children}) => {
         const savedCart = localStorage.getItem('cart');
         return savedCart ? JSON.parse(savedCart) : [];
     });
+    const removeFromCart = (id) => {
+            setCart((prevCart)=> prevCart.filter((item) => item.id !== id))
+         };
+
+         const updateQuantity = (id, amount) => {
+            setCart((prevCart)=> 
+            prevCart.map((item)=>
+            item.id === id ? {...item, quantity:Math.max(1, item.quantity + amount) } : item
+            )
+            );
+         };
     //Sync to localStorage whenever cart changes
     useEffect(()=> {
         localStorage.setItem('cart',JSON.stringify(cart));
@@ -28,7 +39,7 @@ export const CartProvider = ({children}) => {
     };
 
     return (
-        <CartContext.Provider value={{cart, addToCart}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, updateQuantity}}>
             {children}
         </CartContext.Provider>
     );
