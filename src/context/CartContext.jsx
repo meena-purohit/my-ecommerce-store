@@ -3,6 +3,7 @@ import { children, createContext, useContext, useEffect, useState } from "react"
 const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
+    
     // Initialize from localStorage so items persist on refresh
     const [cart, setCart] = useState(()=> {
         const savedCart = localStorage.getItem('cart');
@@ -38,6 +39,8 @@ export const CartProvider = ({children}) => {
         });
     };
 
+    
+    
     return (
         <CartContext.Provider value={{cart, addToCart, removeFromCart, updateQuantity}}>
             {children}

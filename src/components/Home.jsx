@@ -8,6 +8,18 @@ export default function Home() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showToast, setShowToast] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredProducts = products.filter((p) =>
+    p.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+    );
+    
+    const handleAddToCart =(product) => {
+        addToCart(product);
+        setShowToast(true);
+       setTimeout(()=> setShowToast(false), 2000)
+    };
 
     useEffect(() => {
         fetch('https://dummyjson.com/products')
@@ -26,13 +38,25 @@ export default function Home() {
             });
     }, []);
 
+    
+
     if (loading) return <div className="text-center mt-10 text-xl">Loading Products...</div>;
     if (error) return <div className="p-10 text-center text-red-500">Error: {error}</div>;
 
     
     return (
+        <div className="p-6">
+            <div className="max-w-md mx-auto mb-8">
+                <input type="text"
+                placeholder="Search products..."
+                className="w-full p-3 border-2 border-blue-200 rounded-xl outline-none focus:border-blue-500"
+                onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </div>
+            
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-            {products.map((product ) => (
+
+            {filteredProducts.map((product ) => (
                 
                 <div key={product.id} 
                 
@@ -45,12 +69,19 @@ export default function Home() {
                         <p className="text-blue-600 font-bold mt-2">${product.price}</p>
                     </div>
                     </Link>
-                    <button onClick={() => addToCart(product)}
+                    <button onClick={() => handleAddToCart(product)}
                     className="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                         Add to Cart
                     </button>
+
                 </div>
             ))}
+        </div>
+            {showToast && (
+        <div className="fixed bottom-10 right-10 bg-green-600 text-white px-6 py-3 rounded-lg shadow-2xl animate-bounce z-50">
+            ✅ Item added to cart!
+        </div>
+    )}
         </div>
     );
 }
