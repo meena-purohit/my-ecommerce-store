@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     const {addToCart} =useCart();
@@ -36,11 +37,14 @@ export default function Home() {
                 <div key={product.id} 
                 
                 className="border p-4 rounded-lg shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <Link to={`/details/${product.id}`} className="block">
                     <img src={product.thumbnail} alt={product.title} className="h-40 mx-auto mb-4 object-contain" />
                     <div>
                         <h3 className="font-bold text-sm line-clamp-2">{product.title}</h3>
+                        
                         <p className="text-blue-600 font-bold mt-2">${product.price}</p>
                     </div>
+                    </Link>
                     <button onClick={() => addToCart(product)}
                     className="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                         Add to Cart
