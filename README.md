@@ -1,16 +1,32 @@
-# React + Vite
+# 🛒 React Modern E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional, responsive E-commerce application built with **React**, **Vite**, and **Tailwind CSS v4**. This project demonstrates professional frontend skills including global state management, dynamic routing, and real-time data fetching.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Project Screenshots (screenshot1.png, screenshot2.png)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo
+[View Live Project on Vercel](https://my-ecommerce-store-drab.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+- **Full CRUD Cart**: Add, remove, and update item quantities using React Context API.
+- **Dynamic Routing**: Individual product detail pages using `react-router-dom` and `useParams`.
+- **Real-time Search**: Instant product filtering as you type.
+- **Persistent State**: Cart items are saved to `localStorage` so they stay even after refresh.
+- **Modern UI**: Styled with **Tailwind CSS v4** for a clean, mobile-responsive experience.
+- **Toast Notifications**: Interactive feedback when adding items to the cart.
+
+## 🛠️ Tech Stack
+- **Frontend**: React.js (Hooks, Context API)
+- **Tooling**: Vite (for lightning-fast development)
+- **Styling**: Tailwind CSS v4
+- **Routing**: React Router v7
+- **API**: DummyJSON API
+
+## 📦 Installation & Setup
+
+1. **Clone the repo:**
+   ```bash
+   git clone [REPLACE_WITH_YOUR_GITHUB_REPO_URL]
