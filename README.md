@@ -3,7 +3,8 @@
 A fully functional, responsive E-commerce application built with **React**, **Vite**, and **Tailwind CSS v4**. This project demonstrates professional frontend skills including global state management, dynamic routing, and real-time data fetching.
 
 
-## 📸 Project Screenshots (screenshot1.png, screenshot2.png)
+![Home Page](./screenshot1.png)
+![Cart Page](./screenshot2.png)
 
 
 
